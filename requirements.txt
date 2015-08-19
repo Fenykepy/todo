@@ -1,0 +1,5 @@
+django==1.8                     # django framework
+djangorestframework             # django rest framework
+django-debug-toolbar            # django profiling tool
+pytz                            # time manipulation librairy
+djangorestframework-jwt         # json web token for auth
