@@ -1,13 +1,32 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.mail import send_mail
 
 from todo.settings import DEFAULT_FROM_EMAIL
+
+class UserManager(BaseUserManager):
+    def create_user(self, email, password=None, **kwargs):
+        user = self.model(email=email, **kwargs)
+        user.set_password(password)
+        user.save()
+        return user
+
+    def create_superuser(self, email, password, **kwargs):
+        user = self.model(email=email, is_staff=True, is_superuser=True, **kwargs)
+        user.set_password(password)
+        user.save()
+        return user
 
 class User(AbstractBaseUser):
     """User extension table."""
     uuid = models.CharField(max_length=42, blank=True, null=True)
     uuid_expiration = models.DateTimeField(blank=True, null=True)
+    
+    
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_superuser = models.BooleanField(default=False)
+
     mail_registration = models.BooleanField(
             default=False,
             db_index=True,
@@ -17,8 +36,15 @@ class User(AbstractBaseUser):
                 "(for staff members only)"
             )
     )
+    username = models.CharField(max_length=254, blank=True, null=True)
     email = models.EmailField(max_length=254, unique=True)
+
+    # to use email as login field
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = UserManager()
+
 
 
     def send_mail(self, subject, message):

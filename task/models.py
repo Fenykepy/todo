@@ -12,10 +12,10 @@ class Task(models.Model):
             verbose_name="Description")
     completed = models.BooleanField(default=False, db_index=True,
             verbose_name="Task completed")
-    due_time = models.DateTimeField(blank=True, db_index=True,
+    due_time = models.DateTimeField(blank=True, null=True, db_index=True,
             verbose_name="Due time")
     date_created = models.DateTimeField(auto_now_add=True)
-    date_edited = models.DateTimeField(auto_now_add=True)
+    date_edited = models.DateTimeField(auto_now=True)
 
     owner = models.ForeignKey(User)
 
