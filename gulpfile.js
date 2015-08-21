@@ -17,10 +17,10 @@ var path = {
     LESS_CONTROLLER: 'src/less/controller.less',
     MINIFIED_OUT: 'bundle.min.js',
     OUT: 'bundle.js',
-    OUT_CSS: 'phiroom.min.css',
-    DEST: 'assets',
-    DEST_JS: 'assets/js',
-    DEST_CSS: 'assets/css/',
+    OUT_CSS: 'todo.min.css',
+    DEST: 'public/',
+    DEST_JS: 'public/js',
+    DEST_CSS: 'public/css/',
     ENTRY_POINT: './src/js/app/app.js'
 };
 

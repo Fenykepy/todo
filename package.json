@@ -9,7 +9,9 @@
   "dependencies": {
     "flux": "^2.0.3",
     "immutable": "^3.7.4",
+    "keymirror": "^0.1.1",
     "microevent": "^1.0.0",
+    "object-assign": "^3.0.0",
     "react": "^0.13.3",
     "react-router": "^0.13.3"
   },

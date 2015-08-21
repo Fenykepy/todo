@@ -1,2 +1,2 @@
-# toto
+# todo
 Simple todo app
