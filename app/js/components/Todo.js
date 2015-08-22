@@ -15,6 +15,13 @@ module.exports = React.createClass({
             tasks: 
            [
         {
+            "url": "http://127.0.0.1:8000/api/tasks/3/",
+            "description": "Buy potatoes",
+            "completed": true,
+            "due_time": "2017-03-02T01:04:00Z",
+            "date_edited": "2015-08-19T12:30:29.754435Z"
+        },
+        {
             "url": "http://127.0.0.1:8000/api/tasks/1/",
             "description": "Buy milk",
             "completed": true,

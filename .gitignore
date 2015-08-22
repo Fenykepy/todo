@@ -20,8 +20,7 @@ server/todo/data/*
 
 # Distribution / packaging
 public/index.html
-public/js/
-public/css/
+build/bundle.js/
 .Python
 env/
 bin/
